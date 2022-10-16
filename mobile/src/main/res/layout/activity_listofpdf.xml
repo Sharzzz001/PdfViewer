@@ -4,29 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/cs"
     tools:context=".Listofpdf">
 
-    <ListView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ls"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/sendtowatch"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
+        android:layout_height="match_parent"
+        android:id="@+id/ll"
+        android:orientation="vertical"
+        >
+        <ListView
+            android:id="@+id/ls"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/cs"
+            app:layout_constraintBottom_toTopOf="@id/sendtowatch"
+            app:layout_constraintStart_toStartOf="@id/cs"
+            app:layout_constraintEnd_toEndOf="@id/cs"
+            android:layout_weight="9995"
+            />
+        <Button
+            android:id="@+id/sendtowatch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send to Watch"
+            android:textSize="25sp"
+            android:layout_weight="5"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/cs"
+            app:layout_constraintEnd_toEndOf="@id/cs"
+            app:layout_constraintTop_toBottomOf="@id/ls"
+            app:layout_constraintStart_toStartOf="@id/cs"
+            />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/sendtowatch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="676dp"
-        android:text="Send to Watch"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ls" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

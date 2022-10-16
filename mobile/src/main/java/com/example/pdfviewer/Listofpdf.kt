@@ -1,10 +1,10 @@
 package com.example.pdfviewer
 
-import android.annotation.SuppressLint
+import android.content.Context
 import android.net.Uri
 import android.os.Bundle
-import android.provider.OpenableColumns
 import android.util.Log
+import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.documentfile.provider.DocumentFile
@@ -27,18 +27,30 @@ class Listofpdf : AppCompatActivity() {
                 filenamesToDocumentFile[it] = childDocument
             }
         }
-        var lv = findViewById<ListView>(R.id.ls)
         val your_array_list: MutableList<String> = ArrayList()
 
         for(key in filenamesToDocumentFile.keys){
+//            Log.d("Key name:",key)
             your_array_list.add(key)
         }
-        Log.d("Child","Child: $your_array_list")
+
+        val mylist= arrayOf(your_array_list);
+//        Log.d("mylist :", mylist.toString())
+//        Log.d("Child","Child: $mylist")
+        val finarr: MutableList<String> = ArrayList()
+        for(i in mylist){
+            val text = i.toString().replace("[", "").replace("]", "");
+//            Log.d("This is text: ", text)
+            finarr.add(text)
+        }
 
 //        val a = j?.let { getFileName(it) }
 //        Log.d("Return Result: ",a.toString())
-
-
+        val listview = findViewById<ListView>(R.id.ls)
+        val arrayAdapter: ArrayAdapter<*>
+        arrayAdapter = ArrayAdapter(this,
+            android.R.layout.simple_list_item_1, finarr)
+        listview.adapter = arrayAdapter
 
     }
 
