@@ -55,7 +55,7 @@ class Listofpdf : AppCompatActivity() {
             android.R.layout.simple_list_item_1, your_array_list)
         listview.adapter = arrayAdapter
         sendtowatch.setOnClickListener{
-            for(i in childDocuments){
+            for(i in your_path_list){
                 Log.d("Child: ", i.toString())
             }
         }
